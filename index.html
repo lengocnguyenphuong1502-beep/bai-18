@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 18 – Nhóm 4 Lớp 12 Anh</title>
+
+<style>
+/* --- GIAO DIỆN CHUNG --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #FFF4B7 url('https://www.transparenttextures.com/patterns/cubes.png');
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #000B58, #003161);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 { margin:0; font-size: 36px; }
+h2 { color:#000B58; }
+
+section {
+    background: white;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: .3s;
+}
+section:hover { transform: translateY(-5px); }
+
+.details { display:none; margin-top: 12px; }
+
+button {
+    background: #006A67;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.25s;
+}
+button:hover { transform:scale(1.05); }
+
+nav.topmenu {
+    width:100%;
+    background:#003161cc;
+    backdrop-filter: blur(4px);
+    position:fixed;
+    top:0;
+    left:0;
+    padding:12px 25px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    z-index:100;
+}
+nav.topmenu a {
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+}
+nav.topmenu a:hover {
+    color:#FFD93D;
+    transform: translateY(-2px);
+}
+
+img.example {
+    width:100%;
+    border-radius:10px;
+    border: 2px solid #003161;
+    margin-top:12px;
+}
+</style>
+
+<script>
+function toggle(id){
+  var box=document.getElementById(id);
+  if(box.style.display==="block"){
+     box.style.opacity=0;
+     setTimeout(()=>{ box.style.display="none"; },200);
+  } else {
+     box.style.display="block";
+     setTimeout(()=>{ box.style.opacity=1; },10);
+  }
+}
+
+function bounceScroll(targetID){
+    const el = document.getElementById(targetID);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block:'start' });
+
+    setTimeout(() => {
+        el.style.transition = 'transform .45s cubic-bezier(.30,2,.45,1), box-shadow .45s ease';
+        el.style.transform = 'scale(1.18)';
+        el.style.boxShadow = '0 0 45px #ffe47a, 0 0 75px #FFD93D';
+
+        setTimeout(() => {
+            el.style.transform = 'scale(1.06)';
+            el.style.boxShadow = '0 0 25px #FFD93D';
+            setTimeout(() => {
+                el.style.transform = 'scale(1)';
+                el.style.boxShadow = 'none';
+            }, 220);
+        }, 420);
+    }, 500);
+}
+</script>
+</head>
+
+<body>
+
+<!-- MENU -->
+<nav class="topmenu">
+    <a href="https://daisubinta.github.io/Nhom4tin12anh.github.io/">⬅ Quay lại</a>
+    <a href="javascript:bounceScroll('lt1')">LT 1</a>
+    <a href="javascript:bounceScroll('lt2')">LT 2</a>
+    <a href="javascript:bounceScroll('vd')">Vận dụng</a>
+</nav>
+
+<br><br><br>
+
+<header>
+    <h1>Nhóm 4 – Lớp 12 Anh</h1>
+    <h2 style="font-size:52px; font-weight:700; color:#FFD93D;
+        text-shadow:0 5px 14px rgba(0,0,0,.55), 0 0 12px #FFD93D;">
+        BÀI 18: TẠO TRANG WEB & THAY ĐỔI GIAO DIỆN
+    </h2>
+</header>
+
+<!-- LT1 -->
+<section id="lt1">
+<h2>1. Luyện tập 1</h2>
+
+<b>✦ Câu hỏi:</b>
+<p>Tạo trang <code>dang_ki.html</code> chứa biểu mẫu đăng kí câu lạc bộ và bổ sung liên kết đến trang này ở cuối tất cả các trang.</p>
+
+<button onclick="toggle('lt1-content')">Hiện / Ẩn bài làm</button>
+
+<div class="details" id="lt1-content">
+<p><b>Bài làm:</b></p>
+
+<p>• Tạo tệp <code>dang_ki.html</code> → tạo biểu mẫu bằng <code>&lt;form&gt;</code>.</p>
+
+<pre><code>&lt;form&gt;
+  &lt;label&gt;Họ và tên:&lt;/label&gt;
+  &lt;input type="text"&gt;
+
+  &lt;label&gt;Email:&lt;/label&gt;
+  &lt;input type="email"&gt;
+
+  &lt;label&gt;Lớp:&lt;/label&gt;
+  &lt;input type="text"&gt;
+
+  &lt;button&gt;Đăng kí&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>• Thêm liên kết cuối mỗi trang:</p>
+
+<pre><code>&lt;footer&gt;
+  &lt;a href="dang_ki.html"&gt;Đăng kí câu lạc bộ&lt;/a&gt;
+&lt;/footer&gt;
+</code></pre>
+</div>
+</section>
+
+<!-- LT2 -->
+<section id="lt2">
+<h2>2. Luyện tập 2</h2>
+
+<b>✦ Câu hỏi:</b>
+<p>Thay đổi màu sắc và định dạng phông chữ khi di chuột qua các vùng.</p>
+
+<button onclick="toggle('lt2-content')">Hiện / Ẩn bài làm</button>
+
+<div class="details" id="lt2-content">
+<p><b>Bài làm:</b></p>
+
+<pre><code>.vung {
+  font-size: 14px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.vung:hover {
+  font-size: 16px;
+  color: red;
+  font-weight: bold;
+}
+</code></pre>
+</div>
+</section>
+
+<!-- VẬN DỤNG -->
+<section id="vd">
+<h2>3. Vận dụng</h2>
+
+<b>✦ Câu hỏi:</b>
+<p>Đưa ra một thiết kế mới cho website đã tạo và áp dụng toàn bộ định dạng mới.</p>
+
+<button onclick="toggle('vd-content')">Hiện / Ẩn bài làm</button>
+
+<div class="details" id="vd-content">
+<p><b>Bài làm:</b></p>
+
+<p>• Tạo file <code>style.css</code>.  
+• Viết CSS thiết kế mới:</p>
+
+<pre><code>.banner {
+  background: url("../assets/img/bg-masthead.jpg") no-repeat center;
+  background-size: cover;
+  padding: 12rem 0;
+  color: darkred;
+  text-align: center;
+}
+
+.slogan {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 7rem 3rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 3rem;
+}
+
+.block_3 {
+  flex: 0 0 33.33%;
+}
+
+.block_3 h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.text-content {
+  font-size: 16px;
+  color: #333;
+}
+</code></pre>
+
+</div>
+</section>
+
+</body>
+</html>
